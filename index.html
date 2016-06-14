@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boozy</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+
+<h1 class = "title">The Boozy Spectrum</h1>
+<div class="tableArea container">
+<table class = "toDo">
+    <tr>
+      <th>Search <input type = "text" class = "filter"></th>
+      <th>Percentage<span class="sortDate glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span><span class="reverseSortDate glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span></th>
+      <th>Price<span class="sortDone glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span><span class="reverseSortDone glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span></th>
+      <th>Worth<span class="sortDone glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span><span class="reverseSortDone glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true"></span></th>
+    </tr>
+</table>
+
+<div class = "drinkRatings">
+</div>
+</div>
+
+<table class = "template">
+  <tr>
+   <th class = "name"></th>
+   <th class = "percent"></th>
+   <th class = "price"></th>
+   <th class = "worth"></th>
+  </tr>
+</table>
+
+<div class="newDrink container">
+  <input type="text" class = "drinkNameInput">
+  <button class = "submitDrink btn btn-secondary">Submit Task</button>
+  <button class = "cancelAddDrink btn btn-secondary">Cancel</button>
+</div>
+<br>
+<button class="addNewDrink btn btn-primary">Add New Item</button>
+<hr>
+<button type="button" id = "deleteAll" class="btn btn-danger">Delete All</button>
+
+
+
+
+
+  
+</body>
+</html>

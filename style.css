@@ -1,0 +1,120 @@
+body{
+  text-align: center;
+ }
+
+
+h1.title{
+  text-align: center;
+  background-color: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+input.descriptionInput{
+  width:300px;
+}
+input.dueDateInput{
+width: 200px
+}
+
+.newTask{
+  margin-top: 10px;
+}
+
+.tableArea{
+  margin-left: 17%;
+  margin-right: 17%;
+}
+.template, .newTask {
+  display: none;
+}
+
+.template{
+  color:red;
+}
+
+input.done{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+th{
+  border: 1px solid #000;
+  width:250px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+
+}
+
+.btn-group-sm>.btn, .btn-sm{
+  line-height: 1;
+  margin-left: 10%;
+}
+
+.toDo{
+  background-color: #e6e6e6;
+}
+
+button.addNewTask{
+  padding-right:10px;
+}
+
+.glyphicon-sort-by-attributes:before{
+    border: solid 1px;
+    color: #1380ec;
+    border-radius: 2px 2px 2px 2px;
+    margin-left: 10px;
+    padding: 3px;
+    background-color: white;
+}
+.glyphicon-sort-by-attributes-alt:before{
+    border: solid 1px;
+    color: #1380ec;
+    border-radius: 2px 2px 2px 2px;
+    margin-left: 10px;
+    padding: 3px;
+    background-color: white;
+
+}
+.filter{
+  width:130px;
+}
+
+input[type=checkbox], input[type=radio] {
+    margin-left: 6%;
+    margin-right: 27%;
+}
+
+@media (max-width: 1196px){
+  .tableArea{
+    margin-left:10%
+  }
+}
+
+@media (max-width: 992px){
+  th{
+    width:200px;
+  }
+  input[type=checkbox], input[type=radio] {
+    margin-left: 1%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 738px){
+  th{
+    width:160px;
+  }
+  input[type=checkbox], input[type=radio] {
+    margin-left: 1%;
+    margin-right: 2px;
+  }
+  .btn-group-sm>.btn, .btn-sm{
+  line-height: 0.8;
+  margin-left: 2%;
+  }
+}
+
+
+
+
