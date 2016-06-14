@@ -83,43 +83,58 @@ function submitDrink(){
   var name = $('.drinkNameInput').val();
   console.log(name);
   $('.drinkNameInput').val('');
-  var drink = findDrink(name, url);
-  //var drink = a{name, percentage, price, worth};
-  /*var drinks = getDrinks(); // read, parse
-  drinks.push(drink);
-  writeDrinks(drinks);
+  findDrink(name, url, 1);
+  //console.log("drink: ",  drink);
+  //var drink = {name, percentage, price, worth};
+ // var drinks = getDrinks(); // read, parse
+  //drinks.push(drink);
+  //writeDrinks(drinks);
   //var ntasks = getTasks();
-  renderDrinks(drinks);*/
+  //renderDrinks(drinks);
 }
 
 
 
-function findDrink(name, url){
+function findDrink(name, url, page){
   //event.preventDefualt();
   //var page = 1;
-  console.log("name: ", name, " page: ", page );
+  //console.log("name: ", name, " page: ", page );
   $.ajax({
     url: url,
     method: 'GET', //defualt  is get, dont really need this
     dataType: 'jsonp',
     success: function(data){
-       console.log('data:', data.result[0].name);
-       for(var i =0; i< data.pager.total_pages; i++){
-          if(data.result[i].name.toLowerCase() === name.toLowerCase()){
+       //console.log('data:', data.result[0].name);
+       for(var i =0; i< data.pager.current_page_record_count; i++){
+
+           console.log("api name: ", data.result[i].name.toLowerCase());
+           console.log("entered name: ", name.toLowerCase());
+          if(data.result[i].name.toLowerCase() === name.toLowerCase() ){
             found = true;
             console.log("found");
             var price = data.result[i].price_in_cents;
             var percent = data.result[i].alcohol_content;
-            console.log("price: ", price, " % ", percent);
+            //console.log( "vol:", data.result[i].volume_in_milliliters);
+            var volume = data.result[i].volume_in_milliliters;
+            var worth = (volume*percent)/price;
+            //console.log("price: ", price, " % ", percent);
+            var drink = {name, percent, price, worth};
+            console.log("in findDrink: " , drink);
+            var drinks = getDrinks(); // read, parse
+            drinks.push(drink);
+            writeDrinks(drinks);
+            renderDrinks(drinks);
           }
-          if(found === false){
-            var url =  `http://lcboapi.com/products?page=${i+1}&access_key=75dd6b9fe5d5abd2245bf6db4d23fa0a`;
-            findDrink(name, url);
-          }
-       }
-    },
+        }
+        if(found === false){
+          page++;
+          var url =  `http://lcboapi.com/products?page=${page}&access_key=75dd6b9fe5d5abd2245bf6db4d23fa0a`;
+          findDrink(name, url, page);
+        }
+      },
     error: function(error){
       console.log("Error: " , error);
+    }
   });
 }
 
